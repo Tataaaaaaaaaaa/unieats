@@ -1,0 +1,362 @@
+@font-face {
+    font-family: 'Cocogoose-Regular';
+    src: url('../fonts/cocogoose-pro-regular-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-regular-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Cocogoose-Semilight';
+    src: url('../fonts/cocogoose-pro-semilight-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-semilight-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Semilight-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Cocogoose-Thin';
+    src: url('../fonts/cocogoose-pro-thin-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-thin-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Thin-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Trueno-Regular';
+    src: url('../fonts/truenorg-webfont.woff2') format('woff2'),
+          url('../fonts/truenorg-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Trueno-Light';
+    src: url('../fonts/truenolt-webfont.woff2') format('woff2'),
+          url('../fonts/truenolt-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+@font-face {
+    font-family: 'Trueno-Semibold';
+    src: url('../fonts/truenosbd-webfont.woff2') format('woff2'),
+          url('../fonts/truenosbd-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+@font-face {
+    font-family: 'Trueno-Bold-Italic';
+    src: url('../fonts/truenobdit-webfont.woff2') format('woff2'),
+          url('../fonts/truenobdit-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+body, html {
+    overflow-x: hidden;
+    margin: 0; 
+    padding: 0;
+}
+
+@media (min-width: 465px) {
+    #uniEatsLogo {
+        max-height: 60px;
+    }
+}
+  
+@media (max-width: 464px) {
+    #uniEatsLogo {
+        max-height: 50px;
+    }
+}
+
+.nav-text {
+    font-size: calc(0.8rem + 1.31vw);
+    font-family: 'Cocogoose-Semilight';
+    color: black;
+}
+
+.nav-text-red {
+    font-size: calc(0.8rem + 1.31vw);
+    font-family: 'Cocogoose-Semilight';
+    color: #BF3F44;
+}
+
+@media (min-width: 1200px) {
+    .nav-text {
+        font-size: 24px !important;
+        font-family: 'Cocogoose-Semilight' !important;
+        color: black !important;
+    }
+
+    .nav-text-red {
+        font-size: 24px !important;
+        font-family: 'Cocogoose-Semilight' !important;
+        color: #BF3F44 !important;
+    }
+}
+
+.nav-text-active {
+    color: #BF3F44 !important;
+}
+
+@media (min-width: 1600px) {
+    .hidden-nav {
+        display: none !important;
+    }
+  
+    .hidden-side-nav {
+        display: block !important;
+
+    }
+}
+  
+@media (max-width: 1599px) {
+    .hidden-nav {
+        display: block !important;
+
+    }
+  
+    .hidden-side-nav{
+        display: none !important;
+    }
+}
+
+.cocogoose-regular-text-red {
+    font-family: 'Cocogoose-Regular';
+    color: #BF3F44;
+}
+
+.cocogoose-semilight-text-red {
+    font-family: 'Cocogoose-Semilight';
+    color: #BF3F44;
+}
+
+.cocogoose-thin-text-red {
+    font-family: 'Cocogoose-Thin';
+    color: #BF3F44;
+}
+
+.cocogoose-regular-text-black {
+    font-family: 'Cocogoose-Regular' !important;
+    color: black;
+}
+
+.cocogoose-regular-text-white {
+    font-family: 'Cocogoose-Regular' !important;
+    color: white;
+}
+
+.cocogoose-semilight-text-black {
+    font-family: 'Cocogoose-Semilight';
+    color: black;
+}
+
+.cocogoose-thin-text-black {
+    font-family: 'Cocogoose-Thin';
+    color: black;
+}
+
+.trueno-regular-text-black {
+    font-family: 'Trueno-Regular';
+    color: black;
+}
+
+.trueno-regular-text-red {
+    font-family: 'Trueno-Regular';
+    color: #BF3F44;
+}
+
+.trueno-light-text-black {
+    font-family: 'Trueno-Light';
+    color: black;
+}
+
+.trueno-light-text-red {
+    font-family: 'Trueno-Light';
+    color: #BF3F44;
+}
+
+.trueno-light-text-gray {
+    font-family: 'Trueno-Light';
+    color: #666666;
+}
+
+.trueno-semibold-text-black {
+    font-family: 'Trueno-Semibold';
+    color: black;
+}
+
+.trueno-bold-italic-text-black {
+    font-family: 'Trueno-Bold-Italic';
+    color: black;
+}
+
+.active-menu {
+    background-color: #FFE793;
+}
+
+.menu {
+    background-color: white;
+}
+
+.container-profile {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff4ce  ;
+    z-index: 1;
+}
+
+.content-profile {
+    flex: 1;
+    overflow-y: auto;
+}
+
+@media (min-width: 1630px) {
+    .custom-col-3 {
+        flex: 0 0 auto !important;
+        width: 25% !important;
+    }
+
+    .custom-col-9 {
+        flex: 0 0 auto !important;
+        width: 75% !important;
+    }
+
+    .custom-ms-4 {
+        margin-left: .5rem !important;
+    }
+
+    .custom-my-4 {
+        margin-top: 0rem !important;
+        margin-bottom: 0rem !important;
+    }
+
+    .tbr-img {
+        max-width: 320px !important;
+        min-width: 320px !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 10px 0px 0px 10px !important;
+        display: block !important;
+    }
+
+    /* .tbr-img {
+        max-width: 320px;
+        min-width: 320px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 0px 0px 10px;
+    } */
+}
+
+@media (max-width: 1629px) {
+    .custom-col-3 {
+        flex: 0 0 auto !important;
+        width: 0% !important;
+    }
+
+    .custom-col-11 {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+    }
+
+    .custom-ms-4 {
+        margin-left: 0rem !important;
+    }
+
+    .custom-my-4 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .tbr-img {
+        max-width: 320px !important;
+        min-width: 320px !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 10px 0px 0px 10px !important;
+        display: none !important;
+    }
+}
+
+.active-review-history-menu {
+    font-family: 'Trueno-Regular';
+    color: white !important;
+}
+
+.review-history-menu {
+    font-family: 'Trueno-Regular';
+    color: #FC898E !important;
+}
+
+.rating-wrapper {
+    align-self: center;
+    display: inline-flex;
+    direction: rtl !important;
+    
+    label {
+      color: #E1E6F6;
+      display: inline-flex;
+      font-size: 2rem;
+      padding: 0rem .3rem .3rem 0rem;
+      transition: color 0.5s;
+    }
+  
+    input {
+      height: 100%;
+      width: 100%;
+    }
+    
+    input {
+      display: none;
+    }
+}
+
+.wrapper {
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+}
+  
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 0;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    width: 100%;
+    background: white;
+}
+  
+.content {
+    flex: 1;
+    max-width: 100vw;
+    width: 100vw;
+}
+  
+@media (min-width:800px) {
+    .content {
+        max-width: auto;
+        width: auto;
+    }
+}
+  

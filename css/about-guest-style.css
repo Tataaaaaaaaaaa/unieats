@@ -1,0 +1,398 @@
+@font-face {
+    font-family: 'Cocogoose-Regular';
+    src: url('../fonts/cocogoose-pro-regular-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-regular-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Cocogoose-Semilight';
+    src: url('../fonts/cocogoose-pro-semilight-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-semilight-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Semilight-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Cocogoose-Thin';
+    src: url('../fonts/cocogoose-pro-thin-trial-webfont.woff2') format('woff2'),
+          url('../fonts/cocogoose-pro-thin-trial-webfont.woff') format('woff'),
+          url('../fonts/Cocogoose-Pro-Thin-trial.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Trueno-Regular';
+    src: url('../fonts/truenorg-webfont.woff2') format('woff2'),
+          url('../fonts/truenorg-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Trueno-Light';
+    src: url('../fonts/truenolt-webfont.woff2') format('woff2'),
+          url('../fonts/truenolt-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+@font-face {
+    font-family: 'Trueno-Semibold';
+    src: url('../fonts/truenosbd-webfont.woff2') format('woff2'),
+          url('../fonts/truenosbd-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+@font-face {
+    font-family: 'Trueno-Bold-Italic';
+    src: url('../fonts/truenobdit-webfont.woff2') format('woff2'),
+          url('../fonts/truenobdit-webfont.woff') format('woff');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
+} 
+
+body, html {
+    overflow-x: hidden;
+    margin: 0; 
+    padding: 0;
+}
+
+@media (min-width: 465px) {
+    #uniEatsLogo {
+        max-height: 60px;
+    }
+}
+  
+@media (max-width: 464px) {
+    #uniEatsLogo {
+        max-height: 50px;
+    }
+}
+
+.nav-text {
+    font-size: calc(0.8rem + 1.31vw);
+    font-family: 'Cocogoose-Semilight';
+    color: black;
+}
+
+@media (min-width: 1200px) {
+    .nav-text {
+        font-size: 24px !important;
+        font-family: 'Cocogoose-Semilight' !important;
+        color: black;
+    }
+}
+
+.nav-text-active {
+    color: #BF3F44 !important;
+}
+
+@media (min-width: 1600px) {
+    #hidden-nav {
+        display: none;
+    }
+  
+    #hidden-side-nav {
+        display: block;
+    }
+}
+  
+@media (max-width: 1599px) {
+    #hidden-nav {
+        display: block;
+    }
+  
+    #hidden-side-nav{
+        display: none;
+    }
+}
+
+.cocogoose-regular-text-red {
+    font-family: 'Cocogoose-Regular';
+    color: #BF3F44;
+}
+
+.cocogoose-semilight-text-red {
+    font-family: 'Cocogoose-Semilight';
+    color: #BF3F44;
+}
+
+.cocogoose-thin-text-red {
+    font-family: 'Cocogoose-Thin';
+    color: #BF3F44;
+}
+
+.cocogoose-regular-text-black {
+    font-family: 'Cocogoose-Regular' !important;
+    color: black;
+}
+
+.cocogoose-regular-text-white {
+    font-family: 'Cocogoose-Regular' !important;
+    color: white;
+}
+
+.cocogoose-semilight-text-black {
+    font-family: 'Cocogoose-Semilight';
+    color: black;
+}
+
+.cocogoose-thin-text-black {
+    font-family: 'Cocogoose-Thin';
+    color: black;
+}
+
+.trueno-regular-text-black {
+    font-family: 'Trueno-Regular';
+    color: black;
+}
+
+.trueno-light-text-black {
+    font-family: 'Trueno-Light';
+    color: black;
+}
+
+.trueno-light-text-white {
+    font-family: 'Trueno-Light';
+    color: white;
+}
+
+
+.trueno-light-italic-text-black {
+    font-family: 'Trueno-Light';
+    font-style: italic;
+    color: black;
+}
+
+.trueno-semibold-text-red {
+    font-family: 'Trueno-Semibold';
+    color: #BF3F44;
+}
+
+.trueno-semibold-italic-text-black {
+    font-family: 'Trueno-Semibold';
+    font-style: italic;
+    color: black;
+}
+
+.trueno-semibold-text-black {
+    font-family: 'Trueno-Semibold';
+    color: black;
+}
+
+.trueno-bold-italic-text-black {
+    font-family: 'Trueno-Bold-Italic';
+    color: black;
+}
+
+.btn-red-fill {  
+    font-size: 1.5rem !important;
+
+    --bs-btn-color: white !important;
+    --bs-btn-bg: #BF3F44 !important;
+    --bs-btn-border-color: #BF3F44 !important;
+    --bs-btn-hover-color: white !important;
+    --bs-btn-hover-bg: #a8373b !important;
+    --bs-btn-hover-border-color: #a8373b !important;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    border-radius: 50px !important;
+}
+
+.btn-red-outline {  
+    font-size: 1.5rem !important;
+
+    --bs-btn-color: #BF3F44 !important;
+    --bs-btn-bg: white !important;
+    --bs-btn-border-color: #BF3F44 !important;
+    --bs-btn-hover-color: white !important;
+    --bs-btn-hover-bg: #a8373b !important;
+    --bs-btn-hover-border-color: #a8373b !important;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    border-radius: 50px !important;
+}
+
+@media (min-width: 1200px) {
+    .custom-col-5 {
+        flex: 0 0 auto;
+        width: 41.66666667% !important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .custom-col-5 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1409px) {
+    .custom-text-align-left {
+        text-align: left;
+    }
+
+    .custom-col-6 {
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+
+    .hero-1-img {
+        display: block !important;
+    }
+
+    .custom-p-7 {
+        padding: 3rem 3rem 3rem 10rem !important;
+    }
+
+    .custom-mt-7 {
+        margin-top: 6rem !important;
+    }
+}
+
+@media (max-width: 1408px) {
+    .custom-text-align-left {
+        text-align: justify;
+    }
+
+    .custom-col-6 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+
+    .hero-1-img {
+        display: none !important;
+    }
+
+    .custom-p-7 {
+        padding: 3rem 10rem 3rem 10rem !important;
+    }
+
+    .custom-mt-7 {
+        margin-top: 0rem !important;
+    }
+}
+
+@media (max-width: 780px) {
+    .custom-p-7 {
+        padding: 3rem 1.5rem 3rem 1.5rem !important;
+    }
+
+    .custom-mt-7 {
+        margin-top: -4.5rem !important;
+    }
+}
+
+.card-body img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: solid 8px #BF3F44;
+    margin-top: -150px;
+}
+
+.custom-mt-6 {
+    margin-top: 13rem !important;
+    display: block !important;
+}
+
+.custom-mt-6-1 {
+    margin-top: 13rem !important;
+    display: none !important;
+}
+
+@media (max-width: 1199px) {
+    .custom-mt-6 {
+        display: none !important;
+    }
+
+    .custom-mt-6-1 {
+        margin-top: 13rem !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-mt-6-1 {
+        margin-top: 13rem !important;
+        display: none !important;
+    }
+
+    .custom-sm-mt {
+        margin-bottom: 12rem !important;
+    }
+}
+
+textarea {
+    background-color: transparent;
+    width: 100% !important;
+    border: transparent;
+    resize: none !important;
+}
+  
+textarea:active,
+textarea:focus {
+    border: none !important;
+    outline: none !important;
+    resize: none !important; 
+}
+  
+textarea::-webkit-scrollbar {
+    display: none !important;
+}
+
+.trueno-light-text-white {
+    font-family: "Trueno-Light";
+    color: white;
+}
+
+footer {
+    background-color: #BF3F44;
+    margin-top: -1px;
+}
+
+.footer-text {
+    font-family: 'Trueno-Light';
+    color: white !important;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+    .custom-ms-6 {
+        margin-left: 15rem !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    .custom-ms-6 {
+        margin-left: calc(1rem + 5vw) !important;
+    }
+}
+
+.footer-logo {
+    max-height: 100%;
+}
+
+@media (max-width: 767px) {
+    .custom-ms-6 {
+        margin-left: 0rem !important;
+    }
+
+    .footer-logo {
+        max-height: 50px;
+    }
+}
