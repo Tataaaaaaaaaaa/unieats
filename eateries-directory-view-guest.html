@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniEats</title>
+    <link href="../assets/img/UniEats-Logo-Icon.png" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../css/side-bar-style.css">
+    <link rel="stylesheet" href="../css/eateries-directory-view-guest-style.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar">
+        <div class="container-fluid my-3 mt-4">
+            <a class="navbar-brand" href="home-guest.html">
+                <img src="../assets/img/UniEats-Logo.png" alt="UniEats Logo" class="img-fluid ms-4" id="uniEatsLogo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span >
+                    <i class="fas fa-bars" style="color:black; font-size:35px;"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-4">
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="home-guest.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown mt-3">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a class="nav-link nav-text" id="toggleEateries" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #BF3F44 !important;">EATERIES
+                                <span class="position-absolute me-3 end-0 top-45 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleEateriesIcon" style="cursor:pointer; color: #BF3F44; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                <a class="dropdown-item nav-text nav-text-active" href="eateries-directory-guest.html">Directory</a>
+                                </li>
+                                <li>
+                                <a class="dropdown-item nav-text" href="eateries-map-sarap-guest.html">Map Sarap</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="about-guest.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="contact-guest.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item mt-3" id="hidden-nav">
+                        <a class="nav-link nav-text" href="register.html">REGISTER</a>
+                    </li>
+                    <li class="nav-item mt-3" id="hidden-nav">
+                        <a class="nav-link nav-text" href="sign-in.html">SIGN IN</a>
+                    </li>
+                    <li class="nav-item mt-3 ms-5" id="hidden-side-nav">
+                        <a href="register.html">
+                            <button class="btn nav-text btn-red-fill">REGISTER</button>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-3 ms-5" id="hidden-side-nav">
+                        <a href="sign-in.html">
+                            <button class="btn nav-text btn-red-outline">SIGN IN</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid py-3 px-4" style="background-color: #fff4ce;">
+        <h1 class="cocogoose-semilight-text-black text-center display-7 mt-7 mb-5">Find your good spot!</h1>
+
+        <div class="row align-items-center px-4">
+            <div class="row col-12 align-items-center p-4 m-0" style="background-color: white; border-radius: 10px; box-shadow: 0px 5px 12px #c6c6c6; border-radius: 10px;">
+                <form id="searchForm" action="" method="GET" class="col-12 d-flex align-items-center">
+                    <input type="text" name="searchInput" id="searchInput" placeholder="Search by keywords..." class="form-control form-input-style" required autocomplete="off">
+                    <span class="ps-4">
+                        <i id="searchIcon" class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; color: #BF3F44; cursor: pointer"></i>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <nav id="sidebar" class="active" style="background-color: white">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn-1 btn-primary-1">
+                    <i class="fa fa-bars" style="color: #BF3F44"></i>
+                </button>
+            </div>
+
+            <div>
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#categorySearchCategory" id="toggleCategory" data-toggle="collapse" aria-expanded="false" class="cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; border-radius: 0px 20px 0px 0px; background-color: #BF3F44;">
+                                <i class="fa-solid fa-flag"></i>
+                                &nbsp;&nbsp;&nbsp;Category
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleCategoryIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="categorySearchCategory">
+                          <li class="subitem-border p-3 m-0">
+                                <label class="trueno-regular-text-red display-xsm-4" id="categoryCategory" for="categoryCategory">Price Range</label>
+                                <div class="row">
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt1" value="less-than-100" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt1">Less than 100</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt2" value="100-to-200" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt2">100 - 200</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt3" value="more-than-200" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt3">More than 200</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt4" value="all" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt4">All</label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="subitem-border p-3 m-0">
+                                <label class="trueno-regular-text-red display-xsm-4 mb-1" id="categoryCategory" for="categoryCategory">Availability Status</label>
+                                <div class="row">
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt1" value="open" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt1" style="padding: 0.75rem">Open Now</label>
+                                    </div>
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt2" value="closed" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt2">Closed Now</label>
+                                    </div>
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt3" value="all" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt3">All</label>
+                                    </div>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#trendSearchCategory" id="toggleTrend" data-toggle="collapse" aria-expanded="false" class="sort-toggle cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; background-color: #BF3F44;">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                &nbsp;&nbsp;&nbsp;Trend
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleTrendIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="trendSearchCategory">
+                            <li class="subitem-border p-3">
+                                <label class="trueno-regular-text-red display-xsm-4" id="foodTypeCategory-label" for="foodTypeCategory">Food Type</label>
+                                <select name="foodTypeCategory" id="foodTypeCategory" class="form-select trueno-light-text-black form-input-style mt-1">
+                                    <option value="" selected>Select a Food Type</option>
+                                    <option value="localSpecialties">Local Specialties</option>
+                                    <option value="coffeeAndBeverages">Coffee & Beverages</option>
+                                    <option value="fastFood">Fast Food</option>
+                                    <option value="streetFood">Street Food</option>
+                                    <option value="dessertAndTreats">Dessert and Treats</option>
+                                </select>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#ratingsSearchCategory" id="toggleRatings" data-toggle="collapse" aria-expanded="false" class="sort-toggle cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; background-color: #BF3F44;">
+                                <i class="fa-regular fa-star"></i>
+                                &nbsp;&nbsp;&nbsp;Ratings
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleRatingsIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="ratingsSearchCategory">
+                            <li class="subitem-border p-3">
+                                <div class="row">
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="all" name="starRatings" id="starRatingsOptAll" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOptAll">All</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="5" name="starRatings" id="starRatingsOpt1" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt1">5 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="4" name="starRatings" id="starRatingsOpt2" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt2">4 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="3" name="starRatings" id="starRatingsOpt3" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt3">3 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="2" name="starRatings" id="starRatingsOpt4" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt4">2 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="1" name="starRatings" id="starRatingsOpt5" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt5">1 Star</label>
+                                    </div>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <div class="eateries-container">
+                <div class="eateries-content" style="overflow-x: hidden">
+                    <div class="content px-3 py-2">
+                        <div id="eateryResults" class="container-fluid row col-12 py-3 px-3 p-0 m-0 d-flex justify-content-center">
+                            
+                            <div class="row col-12 p-3 mb-3 align-items-center eatery-card">
+                                <div class="back-button">
+                                    <i class="fa-solid fa-arrow-left" style="color: white; font-size: 2.5rem" onclick="goBack()"></i>
+                                </div>
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0 eatery-img" alt="Eatery Image">
+                                </div>
+                                <div class="row col-12 mt-3 p-0 m-0">
+                                    <div class="custom-col-8">
+                                        <p class="trueno-semibold-text-red display-7 mb-0 eatery-name"></p>
+                                    </div>
+                                    <div class="col-4 align-items-center d-flex justify-content-end p-0"> 
+                                        <button class="btn btn-red-fill display-xsm-5 py-8 see-review-btn-lg" data-toggle="modal" data-target="#reviewModal">See Reviews</button>
+                                    </div>
+                                </div>
+                                <div class="row col-12 align-items-center">
+                                    <div class="col-12 d-flex align-items-center mt-3">
+                                        <span class="open-status px-2 py-8 display-xsm-5 me-3">Open Now</span>
+
+                                        <div id="rating-container"></div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row col-12 align-items-center mt-2 p-0 m-0">
+                                    <span class="btn btn-red-fill display-xsm-5 py-8 see-review-btn-sm my-2" data-toggle="modal" data-target="#reviewModal">See Reviews</span>
+                                </div>
+                                <div class="row col-12 align-items-center mt-3">
+                                    <div class="custom-col-6-2 d-flex align-items-center">
+                                        <p class="display-7" style="color: #bf3f44"><i class="fa-solid fa-location-dot me-3"></i></p>
+                                        <p class="display-xsm-4 trueno-light-text-dark-red" style="line-height: 1.5rem" id="eatery-address"></p>
+                                    </div>
+                                    <div class="custom-col-6-2 d-flex align-items-center">
+                                        <p class="display-7" style="color: #bf3f44"><i class="fa-solid fa-clock me-3"></i></p>
+                                        <p class="display-xsm-4 trueno-light-text-dark-red" style="line-height: 1.5rem">Store Hours:<br>7:00AM <span> - </span> 6:00PM | MON-SUN</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 align-items-center mt-4">
+                                    <p class="trueno-regular-text-black display-xsm-4" style="line-height: 1.75rem; text-align: justify" id="eatery-description"></p>
+                                </div>
+                                <div class="col-12 align-items-center">
+                                    <p class="trueno-semibold-text-red display-xsm-4 mt-5">Explore Categories</p>
+                                </div>
+                                <div class="row align-items-center mt-0 category-container">
+                                    <div class="col-12">
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('all'); changeColor(this)">All</button>
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('budgetMeal'); changeColor(this)">Budget Meal</button>
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('dessert'); changeColor(this)">Dessert</button>
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('mainDish'); changeColor(this)">Main Dish</button>
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('beverages'); changeColor(this)">Beverages</button>
+                                        <button class="cocogoose-regular-text-red display-xsm-5 category" onclick="filterMealCards('others'); changeColor(this)">Others</button>
+                                    </div>
+                                </div>
+                                <div class="col-12 align-items-center category-container-dropdown">
+                                    <select name="mealTypeCategory" id="mealTypeCategory" class="form-select cocogoose-regular-text-red display-xsm-5 dish-category-style mt-1" style="box-shadow: 0px 5px 12px #c6c6c6;" onchange="filterMealCards(this.value)">
+                                        <option value="all" selected>All</option>
+                                        <option value="budgetMeal">Budget Meal</option>
+                                        <option value="dessert">Dessert</option>
+                                        <option value="mainDish">Main Dish</option>
+                                        <option value="beverages">Beverages</option>
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="container row col-12 mt-3 align-items-center m-0 d-flex justify-content-center" style="gap: 1rem;">
+                                    <div class="row custom-col-3-5 align-items-center m-0 p-0 meal-card" style="box-shadow: 0px 5px 12px #c6c6c6; border-radius: 10px; background-color: white;"
+                                        data-meal-category="' . $row_tbl_meal['meal_category'] . '">
+                                        <div class="col-12 align-items-center m-0 p-0">
+                                            <img class="meal-img" src="../assets/img/meal/no-meal.png" alt="Meal Image">
+                                        </div>
+
+                                        <div class="col-10 m-0 ps-3 mt-3">
+                                            <p class="trueno-semibold-text-black display-xsm-4">Food Item 1<br>
+                                                <span class="trueno-semibold-text-red"><i class="fa-solid fa-peso-sign"></i>&nbsp;0.00</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row custom-col-3-5 align-items-center m-0 p-0 meal-card" style="box-shadow: 0px 5px 12px #c6c6c6; border-radius: 10px; background-color: white;"
+                                        data-meal-category="' . $row_tbl_meal['meal_category'] . '">
+                                        <div class="col-12 align-items-center m-0 p-0">
+                                            <img class="meal-img" src="../assets/img/meal/no-meal.png" alt="Meal Image">
+                                        </div>
+
+                                        <div class="col-10 m-0 ps-3 mt-3">
+                                            <p class="trueno-semibold-text-black display-xsm-4">Food Item 2<br>
+                                                <span class="trueno-semibold-text-red"><i class="fa-solid fa-peso-sign"></i>&nbsp;0.00</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row custom-col-3-5 align-items-center m-0 p-0 meal-card" style="box-shadow: 0px 5px 12px #c6c6c6; border-radius: 10px; background-color: white;"
+                                        data-meal-category="' . $row_tbl_meal['meal_category'] . '">
+                                        <div class="col-12 align-items-center m-0 p-0">
+                                            <img class="meal-img" src="../assets/img/meal/no-meal.png" alt="Meal Image">
+                                        </div>
+
+                                        <div class="col-10 m-0 ps-3 mt-3">
+                                            <p class="trueno-semibold-text-black display-xsm-4">Food Item 3<br>
+                                                <span class="trueno-semibold-text-red"><i class="fa-solid fa-peso-sign"></i>&nbsp;0.00</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 9999;">
+                    <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
+                </button>
+                <div class="modal-body">
+                        <img class="img-fluid eatery-img" alt="Eatery Image">
+                    <div class="row align-items-center m-0 py-4 px-3">
+                        <p class="col-12 trueno-semibold-text-red display-7 mb-0 eatery-name"></p>
+                        <p class="col-12 display-xsm-4 trueno-light-text-dark-red mb-4">MON - SUN 7:00AM - 6:00PM</p>
+                        <hr>
+                        <div class="row col-12 align-items-center m-0 p-0">
+                            <p class="col-6 display-xsm-4 trueno-semibold-text-light-red mt-3 mb-4">All Ratings (0)</p>
+                            <div class="col-6 d-flex justify-content-end align-items-center">
+                                <p class="display-xsm-4 trueno-semibold-text-red mt-3 mb-4">
+                                    <span><i class="fa-solid fa-star" style="color: #FFE073"></i></span>
+                                    &nbsp;
+                                </p>
+                            </div>
+                        </div>
+                        <div class="container mb-2">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">
+                                        5
+                                        <i class="fa-solid fa-star" style="color: #FFE073"></i>
+                                    </p>
+                                </div>
+                                <div class="col-10">
+                                    <div class="progress m-0">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mb-2">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">
+                                        4
+                                        <i class="fa-solid fa-star" style="color: #FFE073"></i>
+                                    </p>
+                                </div>
+                                <div class="col-10">
+                                    <div class="progress m-0">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mb-2">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">
+                                        3
+                                        <i class="fa-solid fa-star" style="color: #FFE073"></i>
+                                    </p>
+                                </div>
+                                <div class="col-10">
+                                    <div class="progress m-0">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mb-2">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">
+                                        2
+                                        <i class="fa-solid fa-star" style="color: #FFE073"></i>
+                                    </p>
+                                </div>
+                                <div class="col-10">
+                                    <div class="progress m-0">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mb-6">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">
+                                        1
+                                        <i class="fa-solid fa-star" style="color: #FFE073"></i>
+                                    </p>
+                                </div>
+                                <div class="col-10">
+                                    <div class="progress m-0">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-center m-0 p-0">
+                                    <p class="trueno-regular-text-black display-xsm-5 m-0 p-0">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-12 align-items-center m-0 p-0">
+                            <p class="col-6 display-xsm-4 trueno-semibold-text-light-red mt-3 mb-3">Reviews</p>
+                            <div class="col-6 d-flex justify-content-end align-items-center">
+                                <p class="display-xsm-4 trueno-semibold-text-red mt-3 mb-4 filter-by">
+                                    <span><i class="fa-solid fa-filter" style="color: #BF3F44"></i></span>
+                                    &nbsp;Filter by
+                                </p>
+
+                                <div class="filter_dd">
+                                    <div class="row ps-4 pt-3">
+                                        <label class="trueno-regular-text-red col-12 p-0">Star&nbsp;<i class="fa-solid fa-star" style="color: #FFE073"></i></label>
+    
+                                        <label for="fiveStarCheck" class="trueno-regular-text-black col-6 p-0">
+                                            <input class="custom-color-checkbox" type="checkbox" name="starCheck" value="5" id="fiveStarCheck"/> 
+                                            5 Stars (0)  
+                                        </label>
+                                        <label for="fourStarCheck" class="trueno-regular-text-black col-6 p-0">
+                                            <input class="custom-color-checkbox" type="checkbox" name="starCheck" value="4" id="fourStarCheck"/> 
+                                            4 Stars (0)
+                                        </label>
+                                        <label for="threeStarCheck" class="trueno-regular-text-black col-6 p-0">
+                                            <input class="custom-color-checkbox" type="checkbox" name="starCheck" value="3" id="threeStarCheck"/> 
+                                            3 Stars (0)  
+                                        </label>
+                                        <label for="twoStarCheck" class="trueno-regular-text-black col-6 p-0">
+                                            <input class="custom-color-checkbox" type="checkbox" name="starCheck" value="2" id="twoStarCheck"/> 
+                                            2 Stars (0)
+                                        </label>
+                                        <label for="oneStarCheck" class="trueno-regular-text-black col-12 p-0 mb-2">
+                                            <input class="custom-color-checkbox" type="checkbox" name="starCheck" value="1" id="oneStarCheck"/> 
+                                            1 Star (0)
+                                        </label>
+
+                                        <label class="trueno-regular-text-red col-12 p-0">Date&nbsp;<i class="fa-solid fa-calendar-days"></i></label>
+    
+                                        <label for="latestToOldestCheck" class="trueno-regular-text-black col-12 p-0">
+                                            <input class="custom-color-checkbox" type="radio" name="sortRadio" value="latestToOldest" id="latestToOldestCheck" checked/> 
+                                            Latest to Oldest
+                                        </label>
+                                        <label for="oldestToLatestCheck" class="trueno-regular-text-black col-12 p-0 mb-2">
+                                            <input class="custom-color-checkbox" type="radio" name="sortRadio" value="oldestToLatest" id="oldestToLatestCheck"/> 
+                                            Oldest to Latest
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="rowsContainer">
+                                <hr>
+                                <div class="col-12 align-items-center text-center">
+                                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-4">No Reviews Yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap-5.3.2-dist/js/bootstrap.bundle.js "></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/side-bar.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const raw = localStorage.getItem('selectedEatery');
+        if (!raw) return;
+
+        const eatery = JSON.parse(raw);
+        const rating = parseInt(eatery.rating);
+
+        document.querySelectorAll('.eatery-img').forEach(img => {
+            img.src = eatery.image;
+        });
+        document.querySelectorAll('.eatery-name').forEach(el => {
+            el.textContent = eatery.name;
+        });
+        document.getElementById('eatery-address').textContent = eatery.address;
+        document.getElementById('eatery-description').textContent = eatery.description;
+
+        let ratingHTML = '';
+        switch (rating) {
+            case 5:
+                ratingHTML = `
+                <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">5.0</p>
+                </div>
+                <div class="col-12 p-0 m-0">
+                    <div class="rating-wrapper rating-star-lg align-items-center">
+                        <span class="trueno-light-text-red display-xsm-5 ms-2 m-0 p-0 rating-display-inline">5.0</span>
+                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                        <label for="5-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                        <label for="4-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                        <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                        <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                        <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                    </div>
+                </div>`;
+                break;
+            
+            case 4:
+                ratingHTML = `
+                <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">4.0</p>
+                </div>
+                <div class="col-12 p-0 m-0">
+                    <div class="rating-wrapper rating-star-lg align-items-center">
+                        <span class="trueno-light-text-red display-xsm-5 ms-2 m-0 p-0 rating-display-inline">4.0</span>
+                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                        <label for="5-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                        <label for="4-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                        <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                        <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                        <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                    </div>
+                </div>`;
+                break;
+
+            case 3:
+                ratingHTML = `
+                <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">3.0</p>
+                </div>
+                <div class="col-12 p-0 m-0">
+                    <div class="rating-wrapper rating-star-lg align-items-center">
+                        <span class="trueno-light-text-red display-xsm-5 ms-2 m-0 p-0 rating-display-inline">3.0</span>
+                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                        <label for="5-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                        <label for="4-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                        <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                        <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                        <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                    </div>
+                </div>`;
+                break;
+
+            case 2:
+                ratingHTML = `
+                <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">2.0</p>
+                </div>
+                <div class="col-12 p-0 m-0">
+                    <div class="rating-wrapper rating-star-lg align-items-center">
+                        <span class="trueno-light-text-red display-xsm-5 ms-2 m-0 p-0 rating-display-inline">2.0</span>
+                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                        <label for="5-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                        <label for="4-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                        <label for="3-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                        <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                        <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                    </div>
+                </div>`;
+                break;
+
+            case 1:
+                ratingHTML = `
+                <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+                    <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">1.0</p>
+                </div>
+                <div class="col-12 p-0 m-0">
+                    <div class="rating-wrapper rating-star-lg align-items-center">
+                        <span class="trueno-light-text-red display-xsm-5 ms-2 m-0 p-0 rating-display-inline">1.0</span>
+                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                        <label for="5-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                        <label for="4-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                        <label for="3-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                        <label for="2-star-rating" class="star-rating">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                        
+                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                        <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                        <i class="fas fa-star d-inline-block"></i>
+                        </label>
+                    </div>
+                </div>`;
+                break;
+        }
+
+        document.getElementById('rating-container').innerHTML = ratingHTML;
+    });
+    </script>
+
+    <script>
+        function changeColor(button) {
+            var buttons = document.getElementsByClassName("category");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.backgroundColor = "white";
+                buttons[i].style.color = "#bf3f44";
+            }
+
+            button.style.color = "white";
+            button.style.backgroundColor = "#bf3f44";
+        }
+    </script>
+
+    <script>
+        document.getElementById('toggleCategory').addEventListener('click', function() {
+            const categoryIcon = document.getElementById('toggleCategoryIcon');
+            categoryIcon.classList.toggle('fa-caret-down');
+            categoryIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleTrend').addEventListener('click', function() {
+            const trendIcon = document.getElementById('toggleTrendIcon');
+            trendIcon.classList.toggle('fa-caret-down');
+            trendIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleRatings').addEventListener('click', function() {
+            const ratingsIcon = document.getElementById('toggleRatingsIcon');
+            ratingsIcon.classList.toggle('fa-caret-down');
+            ratingsIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleEateries').addEventListener('click', function() {
+            const eateriesIcon = document.getElementById('toggleEateriesIcon');
+            eateriesIcon.classList.toggle('fa-caret-down');
+            eateriesIcon.classList.toggle('fa-caret-up');
+        });
+    </script>
+
+    <script>
+        function goBack() {
+            window.location.href = "eateries-directory-guest.html"
+        }
+    </script>
+
+    <script>
+        $(".filter-by").click(function(){
+            $(this).parent().toggleClass("active");
+            $(this).next(".filter_dd").toggleClass("active");
+        });
+    </script>
+</body>
+</html>

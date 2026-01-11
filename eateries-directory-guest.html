@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniEats</title>
+    <link href="../assets/img/UniEats-Logo-Icon.png" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../css/side-bar-style.css">
+    <link rel="stylesheet" href="../css/eateries-directory-guest-style.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar">
+        <div class="container-fluid my-3 mt-4">
+            <a class="navbar-brand" href="home-guest.html">
+                <img src="../assets/img/UniEats-Logo.png" alt="UniEats Logo" class="img-fluid ms-4" id="uniEatsLogo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span >
+                    <i class="fas fa-bars" style="color:black; font-size:35px;"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-4">
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="home-guest.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown mt-3">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a class="nav-link nav-text" id="toggleEateries" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #BF3F44 !important;">EATERIES
+                                <span class="position-absolute me-3 end-0 top-45 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleEateriesIcon" style="cursor:pointer; color: #BF3F44; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                <a class="dropdown-item nav-text nav-text-active" href="eateries-directory-guest.html">Directory</a>
+                                </li>
+                                <li>
+                                <a class="dropdown-item nav-text" href="eateries-map-sarap-guest.html">Map Sarap</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="about-guest.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link nav-text" href="contact-guest.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item mt-3" id="hidden-nav">
+                        <a class="nav-link nav-text" href="register.html">REGISTER</a>
+                    </li>
+                    <li class="nav-item mt-3" id="hidden-nav">
+                        <a class="nav-link nav-text" href="sign-in.html">SIGN IN</a>
+                    </li>
+                    <li class="nav-item mt-3 ms-5" id="hidden-side-nav">
+                        <a href="register.html">
+                            <button class="btn nav-text btn-red-fill">REGISTER</button>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-3 ms-5" id="hidden-side-nav">
+                        <a href="sign-in.html">
+                            <button class="btn nav-text btn-red-outline">SIGN IN</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-3 px-4" style="background-color: #fff4ce;">
+        <h1 class="cocogoose-semilight-text-black text-center display-7 mt-7 mb-5">Find your good spot!</h1>
+
+        <div class="row align-items-center px-4">
+            <div class="row col-12 align-items-center p-4 m-0" style="background-color: white; border-radius: 10px; box-shadow: 0px 5px 12px #c6c6c6; border-radius: 10px;">
+                <div class="col-12 d-flex align-items-center">
+                    <input type="text" name="searchInput" id="searchInput" placeholder="Search by keywords..." class="form-control form-input-style" autocomplete="off">
+                    <span class="ps-4">
+                        <i id="searchIcon" class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; color: #BF3F44; cursor: pointer"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <nav id="sidebar" class="active" style="background-color: white">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn-1 btn-primary-1">
+                    <i class="fa fa-bars" style="color: #BF3F44"></i>
+                </button>
+            </div>
+
+            <div>
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#categorySearchCategory" id="toggleCategory" data-toggle="collapse" aria-expanded="false" class="cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; border-radius: 0px 20px 0px 0px; background-color: #BF3F44;">
+                                <i class="fa-solid fa-flag"></i>
+                                &nbsp;&nbsp;&nbsp;Category
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleCategoryIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="categorySearchCategory">
+                          <li class="subitem-border p-3 m-0">
+                                <label class="trueno-regular-text-red display-xsm-4" id="categoryCategory" for="categoryCategory">Price Range</label>
+                                <div class="row">
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt1" value="less-than-100" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt1">Less than 100</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt2" value="100-to-200" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt2">100 - 200</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt3" value="more-than-200" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt3">More than 200</label>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <input type="radio" class="btn-check" name="priceRange" id="priceRangeOpt4" value="all" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="priceRangeOpt4">All</label>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="subitem-border p-3 m-0">
+                                <label class="trueno-regular-text-red display-xsm-4 mb-1" id="categoryCategory" for="categoryCategory">Availability Status</label>
+                                <div class="row">
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt1" value="open" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt1" style="padding: 0.75rem">Open Now</label>
+                                    </div>
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt2" value="closed" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt2">Closed Now</label>
+                                    </div>
+                                    <div class="custom-col-4 custom-mb-2">
+                                        <input type="radio" class="btn-check" name="availabilityStatus" id="availabilityStatusOpt3" value="all" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="availabilityStatusOpt3">All</label>
+                                    </div>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#trendSearchCategory" id="toggleTrend" data-toggle="collapse" aria-expanded="false" class="sort-toggle cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; background-color: #BF3F44;">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                &nbsp;&nbsp;&nbsp;Trend
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleTrendIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="trendSearchCategory">
+                            <li class="subitem-border p-3">
+                                <label class="trueno-regular-text-red display-xsm-4" id="foodTypeCategory-label" for="foodTypeCategory">Food Type</label>
+                                <select name="foodTypeCategory" id="foodTypeCategory" class="form-select trueno-light-text-black form-input-style mt-1">
+                                    <option value="" selected>Select a Food Type</option>
+                                    <option value="localSpecialties">Local Specialties</option>
+                                    <option value="coffeeAndBeverages">Coffee & Beverages</option>
+                                    <option value="fastFood">Fast Food</option>
+                                    <option value="streetFood">Street Food</option>
+                                    <option value="dessertAndTreats">Dessert and Treats</option>
+                                </select>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="m-0 p-0" style="position: relative">
+                            <a href="#ratingsSearchCategory" id="toggleRatings" data-toggle="collapse" aria-expanded="false" class="sort-toggle cocogoose-semilight-text-white display-xsm-6 p-3" style="text-decoration: none; background-color: #BF3F44;">
+                                <i class="fa-regular fa-star"></i>
+                                &nbsp;&nbsp;&nbsp;Ratings
+                                <span class="position-absolute me-3 end-0 top-50 translate-middle-y">
+                                    <i class="fa-solid fa-caret-down" id="toggleRatingsIcon" style="cursor:pointer; color: white; font-size: 1.2rem"></i>  
+                                </span>
+                            </a>
+                        </div>
+                        <div class="sublist">
+                          <ul class="collapse list-unstyled mb-2" id="ratingsSearchCategory">
+                            <li class="subitem-border p-3">
+                            <div class="row">
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="all" name="starRatings" id="starRatingsOptAll" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOptAll">All</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="5" name="starRatings" id="starRatingsOpt1" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt1">5 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="4" name="starRatings" id="starRatingsOpt2" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt2">4 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="3" name="starRatings" id="starRatingsOpt3" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt3">3 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="2" name="starRatings" id="starRatingsOpt4" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt4">2 Stars</label>
+                                    </div>
+                                    <div class="custom-col-6 mb-2">
+                                        <input type="radio" class="btn-check" value="1" name="starRatings" id="starRatingsOpt5" autocomplete="off">
+                                        <label class="p-2 m-0 btn custom-btn-price-range d-flex align-items-center justify-content-center" for="starRatingsOpt5">1 Star</label>
+                                    </div>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <div class="eateries-container">
+                <div class="eateries-content" style="overflow-x: hidden">
+                    <div class="content px-3 py-2">
+                        <div id="eateryResults" class="container-fluid row col-12 py-3 px-3 p-0 m-0 d-flex justify-content-center">
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-betongs-tapsilogan.png&quot;,
+                                    &quot;name&quot;:&quot;Betong's Tapsilogan&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#52 G. Marcelo Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;For a taste of home with a twist, head to Betong's tapsilogan! Their tapsilog dishes pack a punch of flavor at prices that won't disappoint.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-betongs-tapsilogan.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Betong's Tapsilogan</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#52 G. Marcelo Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>For a taste of home with a twist, head to Betong's tapsilogan! Their tapsilog dishes pack a punch of flavor at prices that won't disappoint.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-papa-frois-lugawan.png&quot;,
+                                    &quot;name&quot;:&quot;Papa Froi's Lugawan&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#53 G. Marcelo Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Warm your soul at Papa Froi's lugawan! Their comforting lugaw bowls are perfect for a quick and budget-friendly meal.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-papa-frois-lugawan.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Papa Froi's Lugawan</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#53 G. Marcelo Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Warm your soul at Papa Froi's lugawan! Their comforting lugaw bowls are perfect for a quick and budget-friendly meal.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-tea-next-door.png&quot;,
+                                    &quot;name&quot;:&quot;Tea Next Door&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;#153 Tongco Street, Maysan, Valenzuela&quot;,
+                                    &quot;description&quot;:&quot;Step into Tea Next Door for a sip of happiness! Their wide selection of milk teas and cozy ambiance make them the ultimate hangout spot.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-tea-next-door.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Tea Next Door</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#153 Tongco Street, Maysan, Valenzuela</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Step into Tea Next Door for a sip of happiness! Their wide selection of milk teas and cozy ambiance make them the ultimate hangout spot.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eateries/eatery-kubo.png&quot;,
+                                    &quot;name&quot;:&quot;Tiya Lucing Kubo&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#65 G. Marcelo Street, Maysan Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Experience home-style dining at its finest at Kubo! Delicious meals at affordable prices await in their cozy setting.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-kubo.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Tiya Lucing Kubo</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#65 G. Marcelo Street, Maysan Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="5"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Experience home-style dining at its finest at Kubo! Delicious meals at affordable prices await in their cozy setting.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-momshie-food.png&quot;,
+                                    &quot;name&quot;:&quot;Momshie Food&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#82 G. Marcelo Street, Maysan Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Momshie's love sa bawat kainan! Dito, ang sarap, parang luto ng nanay mo!&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-momshie-food.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Momshie Food</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#82 G. Marcelo Street, Maysan Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Momshie's love sa bawat kainan! Dito, ang sarap, parang luto ng nanay mo!</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-jenkiks-tapsilogan.png&quot;,
+                                    &quot;name&quot;:&quot;Jenkiks Tapsilogan&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#93 Tongco Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Jenkiks tapsilogan: where affordability meets authenticity! Dive into their delicious tapsilog dishes without worrying about your budget.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-jenkiks-tapsilogan.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Jenkiks Tapsilogan</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#93 Tongco Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="5"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Jenkiks tapsilogan: where affordability meets authenticity! Dive into their delicious tapsilog dishes without worrying about your budget.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-mang-marios-mami-haus.png&quot;,
+                                    &quot;name&quot;:&quot;Mang Mario's Mami Haus&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;#92 Tongco Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Treat yourself to hearty bowls of mouthwatering mami dishes, where every spoonful is a taste of tradition and value.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-mang-marios-mami-haus.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Mang Mario's Mami Haus</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#92 Tongco Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Treat yourself to hearty bowls of mouthwatering mami dishes, where every spoonful is a taste of tradition and value.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-paresan-sa-maysan.png&quot;,
+                                    &quot;name&quot;:&quot;Paresan sa Maysan&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#26 Tongco Street, Maysan, Valenzuela, City&quot;,
+                                    &quot;description&quot;:&quot;Paresan sa Maysan: your go-to spot for comforting pares dishes at budget-friendly prices! Get your fix of savory goodness here.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-paresan-sa-maysan.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Paresan sa Maysan</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#26 Tongco Street, Maysan, Valenzuela, City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Paresan sa Maysan: your go-to spot for comforting pares dishes at budget-friendly prices! Get your fix of savory goodness here.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-takoyaki-bits.png&quot;,
+                                    &quot;name&quot;:&quot;Takoyaki Bits&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;Tongco Street, Maysan, Valenzuela&quot;,
+                                    &quot;description&quot;:&quot;Taste the flavors of Japan at Takoyaki Bits! Their mouthwatering takoyaki balls are a pocket-friendly delight you can't resist.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-takoyaki-bits.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Takoyaki Bits</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">Tongco Street, Maysan, Valenzuela</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Taste the flavors of Japan at Takoyaki Bits! Their mouthwatering takoyaki balls are a pocket-friendly delight you can't resist.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-main-hahn-eatery.png&quot;,
+                                    &quot;name&quot;:&quot;Main-Hahn Eatery&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#100 Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Main Hahn Eatery: serving up delicious home-style meals at prices that won't leave you hungry or broke. Dive into flavor without breaking the bank!&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-main-hahn-eatery.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Main-Hahn Eatery</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#100 Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="5"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Main Hahn Eatery: serving up delicious home-style meals at prices that won't leave you hungry or broke. Dive into flavor without breaking the bank!</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-ocakeph-store.png&quot;,
+                                    &quot;name&quot;:&quot;O'CakePH Store&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Indulge your sweet tooth at O'CakePH Store! From cakes to pastries, they serve up delightful treats that won't disappoint&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-ocakeph-store.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">O'CakePH Store</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Indulge your sweet tooth at O'CakePH Store! From cakes to pastries, they serve up delightful treats that won't disappoint</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-the-espresso-depot-valenzuela.png&quot;,
+                                    &quot;name&quot;:&quot;Cafezhino Premium&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#55 G. Marcelo Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Fuel up at The Espresso Depot! Their premium coffee blends and cozy ambiance make them the perfect spot for your caffeine fix.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-the-espresso-depot-valenzuela.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Cafezhino Premium</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#55 G. Marcelo Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="5"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Fuel up at The Espresso Depot! Their premium coffee blends and cozy ambiance make them the perfect spot for your caffeine fix.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-d-alley-burger.png&quot;,
+                                    &quot;name&quot;:&quot;D'Alley Burger&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;#102 Dionisio Alley, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Your destination for burgers on a budget! Indulge in juicy patties without breaking the bank.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-d-alley-burger.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">D'Alley Burger</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#102 Dionisio Alley, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Your destination for burgers on a budget! Indulge in juicy patties without breaking the bank.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-ranchos-barbeque.png&quot;,
+                                    &quot;name&quot;:&quot;Ranchos Barbeque&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#40 G. Marcelo Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Fire up your taste buds at Ranchos Barbeque Maysan! Their mouthwatering BBQ delights bring the flavor of the grill right to your plate.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-ranchos-barbeque.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Ranchos Barbeque</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#40 G. Marcelo Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Fire up your taste buds at Ranchos Barbeque Maysan! Their mouthwatering BBQ delights bring the flavor of the grill right to your plate.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-roberto-eatery.png&quot;,
+                                    &quot;name&quot;:&quot;Roberto's Eatery&quot;,
+                                    &quot;rating&quot;:5,
+                                    &quot;address&quot;:&quot;#42 G. Marcelo Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Where every dish is a taste of home! Enjoy hearty meals that warm the soul without burning a hole in your pocket.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-roberto-eatery.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Roberto's Eatery</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#42 G. Marcelo Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="5"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Where every dish is a taste of home! Enjoy hearty meals that warm the soul without burning a hole in your pocket.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-taho-klasiko.png&quot;,
+                                    &quot;name&quot;:&quot;Taho Klasiko&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#2397 Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Start your day right with a classic treat from Taho Klasiko! Their traditional taho delights are a sweet and satisfying way to kick off your morning.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-taho-klasiko.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Taho Klasiko</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#2397 Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Start your day right with a classic treat from Taho Klasiko! Their traditional taho delights are a sweet and satisfying way to kick off your morning.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-jollibee.png&quot;,
+                                    &quot;name&quot;:&quot;Jollibee&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;#98 Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Experience the joy of the nation's favorite fast food at Jollibee! From crispy Chickenjoy to sweet Jolly Spaghetti, they've got your cravings covered.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-jollibee.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Jollibee</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#98 Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Experience the joy of the nation's favorite fast food at Jollibee! From crispy Chickenjoy to sweet Jolly Spaghetti, they've got your cravings covered.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-angels-burger.png&quot;,
+                                    &quot;name&quot;:&quot;Angel's Burger&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#55a Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Angelic flavors await at Angel's Burger! Sink your teeth into their tasty burgers and snacks that won't cost you an arm and a leg.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-angels-burger.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Angel's Burger</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#55a Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Angelic flavors await at Angel's Burger! Sink your teeth into their tasty burgers and snacks that won't cost you an arm and a leg.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-mang-eliong-lugawan.png&quot;,
+                                    &quot;name&quot;:&quot;Mang Eliong's Lugawan&quot;,
+                                    &quot;rating&quot;:3,
+                                    &quot;address&quot;:&quot;#100c Maysan Road, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Satisfy your lugaw cravings at Mang Eliong's Lugawan! Their comforting bowls of lugaw are the perfect remedy for any hungry soul.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-mang-eliong-lugawan.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">Mang Eliong's Lugawan</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">#100c Maysan Road, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="3"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Satisfy your lugaw cravings at Mang Eliong's Lugawan! Their comforting bowls of lugaw are the perfect remedy for any hungry soul.</textarea>
+                                </div>
+                            </a>
+
+                            <a href="eateries-directory-view-guest.html" class="row col-3-v2 p-3 mb-3 custom-mx-3 align-items-center eatery-card"
+                                onclick="sendEateryData(this)"
+                                data-eatery="{
+                                    &quot;image&quot;:&quot;../assets/img/eateries/eatery-jpca-hongkong-fried-noodles.png&quot;,
+                                    &quot;name&quot;:&quot;JPCA Hongkong Fried Noodles&quot;,
+                                    &quot;rating&quot;:4,
+                                    &quot;address&quot;:&quot;Stall A, Clarita Ramos Apt, 104 Tongco Street, Maysan, Valenzuela City&quot;,
+                                    &quot;description&quot;:&quot;Take your taste buds on a trip to JPCA Hongkong Fried Noodles! Their authentic flavors and wallet-friendly prices make every bite a delight.&quot;
+                                    }"
+                                >
+                                <div class="col-12 p-0 m-0">
+                                    <img class="tbr-img m-0" src="../assets/img/eateries/eatery-jpca-hongkong-fried-noodles.png" alt="">
+                                </div>
+                                
+                                <div class="col-12 mt-2 p-0 m-0">
+                                    <p class="trueno-regular-text-red display-xsm-4 mb-0">JPCA Hongkong Fried Noodles</p>
+                                </div>
+                                
+                                <div class="col-12 p-0 m-0">
+                                    <p class="trueno-light-text-red display-xxsm-1">Stall A, Clarita Ramos Apt, 104 Tongco Street, Maysan, Valenzuela City</p>
+                                </div>
+
+                                <div class="row col-12 d-flex align-items-center p-0 m-0">
+                                    <div class="rating-slot" data-rating="4"></div>
+                                </div>
+
+                                <div class="col-12 mt-3 p-0 m-0">
+                                    <textarea rows="4" class="trueno-regular-text-black display-xxsm-2" disabled>Take your taste buds on a trip to JPCA Hongkong Fried Noodles! Their authentic flavors and wallet-friendly prices make every bite a delight.</textarea>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="rating-5">
+        <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+            <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">5.0</p>
+        </div>
+        <div class="col-12 p-0 m-0">
+            <div class="rating-wrapper">
+                <span class="trueno-light-text-red display-xsm-7 custom-mt-2 ms-2 m-0 p-0 rating-display-inline" style="direction: ltr;">5.0</span>
+
+                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                <label for="5-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                <label for="4-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <template id="rating-4">
+        <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+            <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">4.0</p>
+        </div>
+        <div class="col-12 p-0 m-0">
+            <div class="rating-wrapper">
+                <span class="trueno-light-text-red display-xsm-7 custom-mt-2 ms-2 m-0 p-0 rating-display-inline" style="direction: ltr;">4.0</span>
+
+                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                <label for="5-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                <label for="4-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <template id="rating-3">
+        <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+            <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">3.0</p>
+        </div>
+        <div class="col-12 p-0 m-0">
+            <div class="rating-wrapper">
+                <span class="trueno-light-text-red display-xsm-7 custom-mt-2 ms-2 m-0 p-0 rating-display-inline" style="direction: ltr;">3.0</span>
+
+                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                <label for="5-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                <label for="4-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                <label for="3-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <template id="rating-2">
+        <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+            <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">2.0</p>
+        </div>
+        <div class="col-12 p-0 m-0">
+            <div class="rating-wrapper">
+                <span class="trueno-light-text-red display-xsm-7 custom-mt-2 ms-2 m-0 p-0 rating-display-inline" style="direction: ltr;">2.0</span>
+
+                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                <label for="5-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                <label for="4-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                <label for="3-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                <label for="2-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <template id="rating-1">
+        <div class="custom-col-6-1 rating-display-above m-0 p-0" >
+            <p class="trueno-light-text-red display-xsm-7 mb-2 m-0 p-0">1.0</p>
+        </div>
+        <div class="col-12 p-0 m-0">
+            <div class="rating-wrapper">
+                <span class="trueno-light-text-red display-xsm-7 custom-mt-2 ms-2 m-0 p-0 rating-display-inline" style="direction: ltr;">1.0</span>
+
+                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                <label for="5-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                <label for="4-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                <label for="3-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                <label for="2-star-rating" class="star-rating">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+                
+                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                <label for="1-star-rating" class="star-rating star" style="color: #FFE073">
+                    <i class="fas fa-star d-inline-block"></i>
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <script src="../bootstrap-5.3.2-dist/js/bootstrap.bundle.js "></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/side-bar.js"></script>
+
+    <script>
+    function sendEateryData(el) {
+        const eatery = JSON.parse(el.dataset.eatery);
+        localStorage.setItem('selectedEatery', JSON.stringify(eatery));
+    }
+    </script>
+    
+    <script>
+        document.querySelectorAll('.rating-slot').forEach(slot => {
+            const rating = slot.dataset.rating;
+            const templateId = rating === "0" ? "rating-none" : `rating-${rating}`;
+            const template = document.getElementById(templateId);
+
+            if (template) {
+                slot.appendChild(template.content.cloneNode(true));
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('toggleCategory').addEventListener('click', function() {
+            const categoryIcon = document.getElementById('toggleCategoryIcon');
+            categoryIcon.classList.toggle('fa-caret-down');
+            categoryIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleTrend').addEventListener('click', function() {
+            const trendIcon = document.getElementById('toggleTrendIcon');
+            trendIcon.classList.toggle('fa-caret-down');
+            trendIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleRatings').addEventListener('click', function() {
+            const ratingsIcon = document.getElementById('toggleRatingsIcon');
+            ratingsIcon.classList.toggle('fa-caret-down');
+            ratingsIcon.classList.toggle('fa-caret-up');
+        });
+
+        document.getElementById('toggleEateries').addEventListener('click', function() {
+            const eateriesIcon = document.getElementById('toggleEateriesIcon');
+            eateriesIcon.classList.toggle('fa-caret-down');
+            eateriesIcon.classList.toggle('fa-caret-up');
+        });
+    </script>
+
+    <script>
+        function eateryView() {
+            window.location.href = "../html/eateries-eatery-view-guest.html";
+        }
+    </script>
+</body>
+</html>
